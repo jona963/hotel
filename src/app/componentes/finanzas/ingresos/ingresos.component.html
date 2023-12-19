@@ -1,0 +1,48 @@
+<!-- egresos.component.html -->
+<div class="button-container">
+ 
+    <button mat-raised-button (click)="seleccionarTipo('gastos_comunes')">Gastos Comunes</button>
+    <button mat-raised-button (click)="seleccionarTipo('multas')">Multas</button>
+    <button mat-raised-button (click)="seleccionarTipo('otros')">Otros</button>
+    
+  
+  </div>
+  
+  <!-- Muestra la tabla solo si hay un tipo seleccionado -->
+  <div *ngIf="tipoSeleccionado">
+    <table mat-table [dataSource]="dataSource">
+      <!-- Define las columnas de la tabla -->
+      <ng-container *ngFor="let columna of columnas" [matColumnDef]="columna">
+        <th mat-header-cell *matHeaderCellDef>{{ columna }}</th>
+        <!-- Aplica el filtro de fecha solo a la columna 'fecha' -->
+        <td mat-cell *matCellDef="let row" [ngSwitch]="columna">     
+          <span *ngSwitchDefault>{{ row[columna] }}</span>
+        </td>
+      </ng-container>
+  
+      <!-- Agrega las columnas de acción -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let item,">
+          <button mat-icon-button (click)="abrirFormulario(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onClickDelete(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <!-- Muestra las filas de la tabla -->
+      <tr mat-header-row *matHeaderRowDef="columnas.concat('acciones')"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnas.concat('acciones')"></tr>
+    </table>
+  </div>
+  
+  <div class="abrir-form">
+    <button mat-raised-button (click)="abrirFormulario()">
+      <mat-icon color="primary">note_add</mat-icon>Agregar
+    </button>
+  </div>
+  
+  

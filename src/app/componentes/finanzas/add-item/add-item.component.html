@@ -1,0 +1,37 @@
+<div mat-dialog-title>
+    <h1>Agregar Item</h1>
+</div>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+        <div class="columna">
+            <mat-form-field appearance="outline">
+                <mat-label>Item</mat-label>
+                <input matInput type="text" placeholder="Item" formControlName="item" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Descripcion</mat-label>
+                <input matInput type="text" placeholder="Descripcion" formControlName="descripcion" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Monto</mat-label>
+                <input matInput type="number" placeholder="Monto" formControlName="monto" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Estado</mat-label>
+                <input matInput type="text" placeholder="Estado" formControlName="estado" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" placeholder="Nombre" formControlName="nombre" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Descuento</mat-label>
+                <input matInput type="number" placeholder="Descuento" formControlName="descuento" required>
+            </mat-form-field>
+        </div>
+
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+        <button mat-raised-button type="submit">Agregar</button>
+    </div>

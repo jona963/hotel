@@ -1,0 +1,34 @@
+<div class="container">
+<h2>Login de usuario</h2>
+<form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+
+    <div class="d-flex flex-column">
+        <div class="form-group">
+            <mat-form-field>
+                <label class="form-label">Email</label>
+                <input matInput type="email" class="form-control" formControlName="email" required="">
+                <mat-error *ngIf="formLogin.get('email')?.hasError('required') && formLogin.get('email')?.touched">
+                    ¡El correo electrónico es obligatorio!
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-group">
+            <mat-form-field>
+                <label class="form-label">Password</label>
+                <input matInput type="password" class="form-control" formControlName="password">
+                <mat-error
+                    *ngIf="formLogin.get('password')?.hasError('required') && formLogin.get('password')?.touched">
+                    ¡La contraseña es obligatoria!
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="button-container">
+        <div class="d-flex justify-content-center">
+            <button mat-raised-button type="submit" class="btn btn-primary">Ingresar</button>
+        </div>
+        
+    </div>
+</form>
+</div>

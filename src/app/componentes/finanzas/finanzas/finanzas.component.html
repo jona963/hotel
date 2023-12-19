@@ -1,0 +1,18 @@
+<mat-tab-group>
+  <mat-tab label="Ingresos">
+    <ng-container *ngIf="mostrarIngresos">
+
+<!--------------- componente de Ingresos -------------------------------------------------------->
+      <app-ingresos></app-ingresos>
+      
+    </ng-container>
+  </mat-tab>
+  <mat-tab label="Egresos">
+    <ng-container *ngIf="mostrarEgresos">
+
+<!-------------- componente de Egresos ---------------------------------------------------------->
+      <app-egresos></app-egresos>
+
+    </ng-container>
+  </mat-tab>
+</mat-tab-group>

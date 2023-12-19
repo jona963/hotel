@@ -1,0 +1,45 @@
+<!-- historial-pagos.component.html -->
+<h1>Historial de Pagos</h1>
+
+<table mat-table [dataSource]="pagos" class="mat-elevation-z8">
+
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let pago">{{ pago.id }}</td>
+  </ng-container>
+
+  <!-- Nombre Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let pago">{{ pago.nombre }}</td>
+  </ng-container>
+
+  <!-- Departamento Column -->
+  <ng-container matColumnDef="departamento">
+    <th mat-header-cell *matHeaderCellDef>Departamento</th>
+    <td mat-cell *matCellDef="let pago">{{ pago.departamento }}</td>
+  </ng-container>
+
+  <!-- Descripción Column -->
+  <ng-container matColumnDef="descripcion">
+    <th mat-header-cell *matHeaderCellDef>Descripción</th>
+    <td mat-cell *matCellDef="let pago">{{ pago.descripcion }}</td>
+  </ng-container>
+
+  <!-- Folio Column -->
+  <ng-container matColumnDef="folio">
+    <th mat-header-cell *matHeaderCellDef>Folio</th>
+    <td mat-cell *matCellDef="let pago">{{ pago.folio }}</td>
+  </ng-container>
+
+  <!-- Monto Column -->
+  <ng-container matColumnDef="monto">
+    <th mat-header-cell *matHeaderCellDef>Monto</th>
+    <td mat-cell *matCellDef="let pago">{{ pago.monto }}</td>
+  </ng-container>
+
+  <!-- Definir las columnas -->
+  <tr mat-header-row *matHeaderRowDef="['id', 'nombre', 'departamento', 'descripcion', 'folio', 'monto']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id', 'nombre', 'departamento', 'descripcion', 'folio', 'monto']"></tr>
+</table>
